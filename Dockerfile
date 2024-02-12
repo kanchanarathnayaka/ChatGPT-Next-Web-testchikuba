@@ -4,6 +4,9 @@ FROM base AS deps
 
 RUN apk add --no-cache libc6-compat
 
+RUN adduser -D -u 10001 myuser1
+USER myuser1
+
 WORKDIR /app
 
 COPY package.json yarn.lock ./
